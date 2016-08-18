@@ -9,20 +9,16 @@ makeCacheMatrix <- function(x = matrix()) {
     # use <<- to assign a value to an object in an environment 
     # different from the current environment. 
     x <<- y
-    inv <<- NULL
+    i <<- NULL
   }
   get = function() x
   setinv = function(inverse) inv <<- inverse 
   getinv = function() inv
   list(set=set, get=get, setinv=setinv, getinv=getinv)
 }
-
-
-## Write a short comment describing this function
-
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  inv = x$getinv()
+  ## Return a matrix that is the inverse of 'x'
+  inv<- x$getinv()
   
   # if the inverse has already been calculated
   if (!is.null(inv)){
